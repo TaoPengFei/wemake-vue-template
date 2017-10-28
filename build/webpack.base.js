@@ -8,7 +8,7 @@ const _ = require('./utils')
 
 module.exports = {
   entry: {
-    client: './client/index.ts'
+    client: './client/client-entry.ts'
   },
   output: {
     path: _.outputPath,
@@ -28,10 +28,7 @@ module.exports = {
       vue: 'vue/dist/vue.js'
     },
     modules: [
-      _.cwd('node_modules'),
-      // this meanse you can get rid of dot hell
-      // for example import 'components/Foo' instead of import '../../components/Foo'
-      _.cwd('client')
+      _.cwd('node_modules')
     ]
   },
   module: {
@@ -83,7 +80,7 @@ module.exports = {
     new webpack.LoaderOptionsPlugin(_.loadersOptions()),
     new CopyWebpackPlugin([
       {
-        from: _.cwd('./static'),
+        from: _.cwd('./client/assets'),
         // to the roor of dist path
         to: './'
       }

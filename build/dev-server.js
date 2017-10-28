@@ -11,13 +11,15 @@ const LogPlugin = require('./log-plugin')
 
 const app = express()
 
-const devServerOptions = Object.assign({}, webpackConfig.devServer, config.devServer)
+const devServerOptions = Object.assign(
+  {}, webpackConfig.devServer, config.devServer
+)
 
 const host = devServerOptions.host
 const port = devServerOptions.port
 
 webpackConfig.entry.client = [
-  path.join(__dirname, 'dev-client.js'),
+  path.join(__dirname, './dev-client.js'),
   webpackConfig.entry.client
 ]
 
@@ -38,7 +40,7 @@ const server = new Server(compiler, Object.assign({
   historyApiFallback: true,
   overlay: true,
   disableHostCheck: true,
-  publicPath: compiler.options.publicPath
+  publicPath: config.publicPath
 }, devServerOptions))
 
 server.listen(port, host)

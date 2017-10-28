@@ -5,14 +5,10 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
-const rm = require('rimraf')
 const base = require('./webpack.base')
 const pkg = require('../package')
 const _ = require('./utils')
 const config = require('./config')
-
-// remove dist folder in web app mode
-rm.sync('dist/*')
 
 // extract css in standalone css files
 const styleLoaders = []
