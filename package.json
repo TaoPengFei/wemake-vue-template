@@ -1,0 +1,68 @@
+{
+  "name": "new-project",
+  "version": "0.1.0",
+  "description": "My Superb Vue Project",
+  "main": "client/index.js",
+  "private": true,
+  "engines": {
+    "node": "==8.8.0",
+    "npm": "^5.4.2"
+  },
+  "scripts": {
+    "test": "",
+    "build": "webpack --config build/webpack.prod.js",
+    "dev": "node build/server.js"
+  },
+  "author": "sobolevn <mail@sobolevn.me>",
+  "license": "MIT",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {},
+      "postcss-nested": {}
+    }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie > 8"
+  ],
+  "dependencies": {
+    "promise-polyfill": "^6.0.2",
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.0",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.47",
+    "@types/promise-polyfill": "^6.0.0",
+    "autoprefixer": "^6.4.0",
+    "chalk": "^1.1.3",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^2.0.0",
+    "css-loader": "^0.23.1",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^0.9.0",
+    "friendly-errors-webpack-plugin": "^1.1.2",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^0.9.1",
+    "postcss-nested": "^1.0.0",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^3.1.0",
+    "tslint": "^5.8.0",
+    "tslint-config-standard": "^7.0.0",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.5.3",
+    "vue-class-component": "^6.0.0",
+    "vue-loader": "^13.3.0",
+    "vue-template-compiler": "^2.5.2",
+    "vuex-typescript": "^0.1.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.6.1",
+    "webpack-merge": "^4.1.0"
+  }
+}

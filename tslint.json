@@ -1,0 +1,8 @@
+{
+  "defaultSeverity": "error",
+  "extends": "tslint-config-standard",
+  "rules": {
+    // See https://github.com/palantir/tslint/issues/2099
+    "no-consecutive-blank-lines": false
+  }
+}
