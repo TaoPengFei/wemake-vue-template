@@ -2,7 +2,7 @@
   <div class="hello__component">
     <h1>Hello!</h1>
 
-    <p>Counter is {{ count }}</p>
+    <p>Counter is <span>{{ count }}</span></p>
 
     <button @click="increment">Increment</button>
     <button @click="decrement">Decrement</button>
@@ -14,7 +14,7 @@ import Vue from 'vue'
 import { mapState } from 'vuex'
 import { commitIncrement, commitDecrement } from '../store'
 
-export default Vue.extend({
+export default {
   methods: {
     increment () {
       commitIncrement(this.$store)
@@ -26,7 +26,7 @@ export default Vue.extend({
   computed: {
     ...mapState(['count'])
   }
-})
+}
 </script>
 
 <style lang="scss">

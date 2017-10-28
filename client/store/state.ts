@@ -2,8 +2,8 @@ export interface State {
   count: number
 }
 
-const state = {
-  count: 0
-} as State
+function createState(): State {
+  return { count: 0 }
+}
 
-export default state
+export default createState
