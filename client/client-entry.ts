@@ -28,9 +28,9 @@ router.onReady(() => {
     }
 
     // This is where we should trigger a loading indicator if there is one:
-    Promise.all(activated.map((c) => {
-      if ((c as any).asyncData) {
-        return (c as any).asyncData({ store, route: to })
+    Promise.all(activated.map((c: any) => {
+      if (c.asyncData) {
+        return c.asyncData({ store, route: to })
       }
     })).then(() => {
       next() // stop loading indicator

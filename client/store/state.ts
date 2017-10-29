@@ -2,7 +2,7 @@ export interface State {
   count: number
 }
 
-function createState(): State {
+function createState (): State {
   return { count: 0 }
 }
 

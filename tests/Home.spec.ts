@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { mount, createLocalVue } from 'vue-test-utils'
-import Home from '../client/views/Home.vue'
+import Home from '../client/views/home/Home.vue'
 import createStore, { commitIncrement, commitDecrement } from '../client/store'
 
 const localVue = createLocalVue()
@@ -14,7 +14,6 @@ describe('Hello component unit tests', () => {
 
   beforeEach(() => {
     store = createStore()
-    console.log(store.state.count)
   })
 
   it('should have two buttons', () => {

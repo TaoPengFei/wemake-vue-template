@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const TSLintPlugin = require('tslint-webpack-plugin')
 const config = require('./config')
 const _ = require('./utils')
 
@@ -15,7 +16,9 @@ module.exports = {
     filename: '[name].js',
     publicPath: config.publicPath,
     // Point sourcemap entries to original disk location
-    devtoolModuleFilenameTemplate: info => path.resolve(info.absoluteResourcePath),
+    devtoolModuleFilenameTemplate: (info) => {
+      return path.resolve(info.absoluteResourcePath)
+    },
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true
   },
@@ -34,20 +37,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        enforce: 'pre',
-        test: /\.ts$/,
-        loader: 'tslint-loader',
-        exclude: /(node_modules)/,
-        options: {
-          typeCheck: true,
-          tsConfigFile: 'tsconfig.json'
-        }
-      },
-      {
         test: /\.ts$/,
         loader: 'ts-loader',
         options: {
-          appendTsSuffixTo: [/\.vue$/]
+          appendTsSuffixTo: [/\.vue$/],
+          configFile: _.cwd('./tsconfig.json')
         }
       },
       {
@@ -71,6 +65,10 @@ module.exports = {
     ]
   },
   plugins: [
+    // https://www.npmjs.com/package/tslint-webpack-plugin
+    new TSLintPlugin({
+      files: ['./client/**/*.ts']
+    }),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       title: config.title,
@@ -81,7 +79,6 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: _.cwd('./client/assets'),
-        // to the roor of dist path
         to: './'
       }
     ])

@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const express = require('express')
 // const favicon = require('serve-favicon')
-const resolve = file => path.resolve(__dirname, file)
+const resolve = (file) => path.resolve(__dirname, file)
 
 const app = express()
 
@@ -27,8 +27,7 @@ const serve = (path, cache) => express.static(resolve(path), {
   maxAge: cache ? 60 * 60 * 24 * 30 : 0
 })
 
-
-app.use('/assets', serve('../dist', true))
+app.use(express.static(resolve('../dist')))
 // app.use(favicon(path.resolve(__dirname, 'src/assets/logo.png')))
 // app.use('/service-worker.js', serve('./dist/service-worker.js'))
 
